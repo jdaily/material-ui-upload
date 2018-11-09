@@ -1,19 +1,18 @@
 // -*- mode: rjsx -*-
 import React from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
-import {mount} from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import {assert} from 'chai';
 import PropTypes from 'prop-types';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { createMuiTheme } from '@material-ui/core/styles';
 import UploadPreview from './index';
 
+Enzyme.configure({ adapter: new Adapter() });
 
 const mountWithTheme = (node) => mount(
     node,
     {
-        context: {muiTheme: getMuiTheme()},
+        context: {muiTheme: createMuiTheme()},
         childContextTypes: {muiTheme: PropTypes.object}
     }
 );

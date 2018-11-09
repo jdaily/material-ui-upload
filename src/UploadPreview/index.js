@@ -1,10 +1,9 @@
 // *-* mode: rjsx -*-
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
-import {Card, CardHeader, CardMedia, CardActions} from 'material-ui/Card';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentRemove from 'material-ui/svg-icons/content/remove';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardHeader, CardMedia, CardActions} from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
 import {SHA1} from 'jshashes';
 
 import Upload from 'material-ui-upload/Upload';
@@ -85,13 +84,13 @@ export default class UploadPreview extends Component {
     renderPreview = (key) => (
         <div key={key} className={styles.PreviewContainer}>
           <img src={this.state.items[key]} className={styles.Image}/>
-          <FloatingActionButton
+          <Button
             className={styles.RemoveItem}
-            mini={true}
+            variant="fab"
             onClick={this.onRemoveClick(key)}
             >
-            <ContentRemove/>
-          </FloatingActionButton>
+            <DeleteIcon/>
+          </Button>
         </div>
     );
 
@@ -119,7 +118,7 @@ export default class UploadPreview extends Component {
     );
 
     renderRemoveButton = () => (
-        <FlatButton
+        <Button
           label="Remove all"
           style={
               {

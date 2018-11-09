@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@material-ui/core/Button';
 
 import styles from './index.css';
 
@@ -12,7 +12,7 @@ export default class Upload extends Component {
     static defaultProps = {
         fileTypeRegex: /.*/,
         onFileLoad: (e) => undefined,
-        buttonControl: FlatButton
+        buttonControl: Button
     };
 
     static propTypes = {
