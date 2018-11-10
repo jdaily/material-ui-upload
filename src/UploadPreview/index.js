@@ -5,6 +5,7 @@ import {Card, CardHeader, CardMedia, CardActions} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import {SHA1} from 'jshashes';
+import 'raf/polyfill';
 
 import Upload from 'material-ui-upload/Upload';
 
@@ -118,17 +119,16 @@ export default class UploadPreview extends Component {
     );
 
     renderRemoveButton = () => (
-        <Button
-          label="Remove all"
-          style={
-              {
-                  visibility: Object.keys(this.state.items).length
-                      ? 'visible'
-                      : 'hidden'
-              }
+      <Button
+        style={
+          {
+            visibility: Object.keys(this.state.items).length
+              ? 'visible'
+              : 'hidden'
           }
-          onClick={this.onRemoveAllClick}
-          />
+        }
+        onClick={this.onRemoveAllClick}
+      > Remove all</Button>
     );
 
     render() {
